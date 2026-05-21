@@ -1,0 +1,10 @@
+# Markdown files
+*.md
+
+# Claude / AI tool files
+.claude/
+CLAUDE.md
+
+# OS files
+.DS_Store
+Thumbs.db
