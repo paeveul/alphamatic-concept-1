@@ -1451,7 +1451,7 @@ select.form-input {
     background: linear-gradient(
       to bottom,
       rgba(16, 42, 67, 0.72) 0%,
-      rgba(16, 42, 67, 0.55) 60%,
+      rgba(16, 42, 67, 0.75) 60%,
       rgba(16, 42, 67, 0.75) 100%
     );
     pointer-events: none;
