@@ -1437,22 +1437,31 @@ select.form-input {
   .hero {
     background-image: url('images/hero.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
   }
 
-  /* Override the desktop geometric right-panel pseudo-element.
-     On mobile it becomes a full-bleed dark vignette that sits
-     above the background image but below .hero-content.        */
   .hero::before {
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(16, 42, 67, 0.62);
-    border-left: none;
+    display: none;
   }
 
-  /* Keep the image panel hidden — hero.webp is now the bg */
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(16, 42, 67, 0.72) 0%,
+      rgba(16, 42, 67, 0.55) 60%,
+      rgba(16, 42, 67, 0.75) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+  }
+
   .hero-image-panel {
     display: none;
   }
