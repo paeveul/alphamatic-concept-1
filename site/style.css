@@ -1800,3 +1800,161 @@ select.form-input {
   overflow: hidden;
   position: relative;
 }
+
+
+/* ============================================================
+   CAROUSEL — Service card photo carousel
+   ============================================================ */
+.card-carousel {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.carousel-track {
+  display: flex;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 250ms ease-out;
+}
+.carousel-track img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 0;
+  height: 200px;
+  width: 40px;
+  background: rgba(16, 42, 67, 0.45);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s;
+  color: #fff;
+  padding: 0;
+}
+.carousel-btn:hover { background: rgba(16, 42, 67, 0.72); }
+.carousel-btn-prev { left: 0; }
+.carousel-btn-next { right: 0; }
+.carousel-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #ffffff;
+}
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(16, 42, 67, 0.2);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.carousel-dot-active { background: #F4CD00; }
+@media (max-width: 767px) {
+  .carousel-btn { display: none; }
+  .carousel-track {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-y;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track img { scroll-snap-align: start; }
+}
+
+/* card-content wrapper for carousel cards */
+.service-detail-card .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.service-detail-card .card-content .card-number {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(16,42,67,0.08);
+  margin-bottom: 1.25rem;
+  align-self: flex-start;
+}
+.service-detail-card .card-content h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.service-detail-card .card-content p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.75rem;
+}
+
+/* service-cta-btn used in carousel card */
+.service-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  border: 2px solid var(--navy);
+  padding: 0.55rem 1.25rem;
+  transition: background 0.15s, color 0.15s;
+  align-self: flex-start;
+}
+.service-cta-btn:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* === 7-card grid === */
+@media (min-width: 1024px) {
+  .service-detail-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+.service-detail-card--full {
+  grid-column: 1 / -1;
+}
+@media (min-width: 1024px) {
+  .service-detail-card--full {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    padding: 2.5rem;
+  }
+  .service-detail-card--full .card-carousel {
+    height: 280px;
+    margin-bottom: 0;
+  }
+  .service-detail-card--full .carousel-track,
+  .service-detail-card--full .carousel-track img {
+    height: 260px;
+  }
+}

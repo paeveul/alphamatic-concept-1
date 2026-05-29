@@ -26,3 +26,29 @@ if (nav) {
     }
   }, { passive: true });
 }
+
+
+// Service card carousels
+document.querySelectorAll('.card-carousel').forEach(carousel => {
+  const track = carousel.querySelector('.carousel-track');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const prevBtn = carousel.querySelector('.carousel-btn-prev');
+  const nextBtn = carousel.querySelector('.carousel-btn-next');
+  let current = 0;
+  const total = dots.length;
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, total - 1));
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('carousel-dot-active', i === current));
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Mobile: sync dots to scroll position
+  track.addEventListener('scroll', () => {
+    const index = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d, i) => d.classList.toggle('carousel-dot-active', i === index));
+  }, { passive: true });
+});
