@@ -168,7 +168,7 @@ a { color: inherit; }
   gap: 0.625rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .nav-links { display: flex; }
   #hamburger { display: none; }
 }
@@ -405,7 +405,7 @@ a { color: inherit; }
   gap: 3rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 991px) {
   .hero-inner {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -460,7 +460,7 @@ a { color: inherit; }
   display: none;
   position: relative;
 }
-@media (min-width: 900px) {
+@media (min-width: 991px) {
   .hero-image-panel { display: block; }
 }
 
@@ -1429,11 +1429,11 @@ select.form-input {
 
 /* ============================================================
    MOBILE HERO — background image + vignette overlay
-   Below 900px the image panel is hidden; the hero.webp photo
+   Below 990px the image panel is hidden; the hero.webp photo
    becomes the section background with a dark overlay so white
    text stays readable. Desktop rules are untouched.
    ============================================================ */
-@media (max-width: 899px) {
+@media (max-width: 990px) {
   .hero {
     background-image: url('images/hero.webp');
     background-size: cover;
@@ -1957,4 +1957,194 @@ select.form-input {
   .service-detail-card--full .carousel-track img {
     height: 260px;
   }
+}
+
+/* ============================================================
+   JOIN US PAGE
+   ============================================================ */
+
+/* Nav hiring pulse */
+.nav-hiring-pulse {
+  font-weight: 700 !important;
+  animation: hiring-pulse 3s ease-in-out infinite;
+}
+@keyframes hiring-pulse {
+  0%   { color: var(--navy); text-shadow: none; }
+  40%  { color: #e53e3e; text-shadow: 0 0 8px rgba(229,62,62,0.7), 0 0 16px rgba(229,62,62,0.35); }
+  60%  { color: #e53e3e; text-shadow: 0 0 8px rgba(229,62,62,0.7), 0 0 16px rgba(229,62,62,0.35); }
+  100% { color: var(--navy); text-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-hiring-pulse {
+    animation: none;
+    font-weight: 700 !important;
+    color: #e53e3e;
+  }
+}
+
+/* Why Work Here benefit grid */
+.joinus-benefit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .joinus-benefit-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.joinus-benefit-item {
+  border-top: 3px solid var(--yellow);
+  padding-top: 1.75rem;
+}
+.joinus-benefit-item h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.joinus-benefit-item p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+/* Open roles grid */
+.joinus-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: rgba(16,42,67,0.1);
+  border: 1px solid rgba(16,42,67,0.1);
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .joinus-roles-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Role cards */
+.joinus-role-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 1.25rem;
+  align-self: flex-start;
+}
+.joinus-role-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--navy);
+  margin-bottom: 0;
+}
+.joinus-role-card .card-rule {
+  width: 40px;
+  height: 3px;
+  background: var(--yellow);
+  margin: 0.75rem 0 1.25rem;
+  display: block;
+}
+.joinus-role-card .role-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.joinus-role-card .role-section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.55;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.joinus-role-card ul.role-duties {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.joinus-role-card ul.role-duties li {
+  font-size: 0.9rem;
+  color: var(--dark);
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+.joinus-role-card ul.role-duties li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+.joinus-role-card .role-fit {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.joinus-card-cta {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+@media (min-width: 640px) {
+  .joinus-card-cta { width: auto; align-self: flex-start; }
+}
+
+/* How to Apply strip */
+.how-to-apply-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 640px) {
+  .how-to-apply-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.apply-step {}
+.apply-step-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.apply-step-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.apply-step-desc {
+  font-size: 0.875rem;
+  color: rgba(16,42,67,0.7);
+  line-height: 1.65;
 }
